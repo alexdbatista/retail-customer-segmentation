@@ -11,21 +11,21 @@
 
 ---
 
-## 📊 Project Overview
+## Project Overview
 
-This project applies **PhD-level statistical validation methods** from analytical science to customer behavior analysis. Rather than following a standard RFM tutorial, this analysis demonstrates:
+This project applies PhD-level statistical validation methods from analytical science to customer behavior analysis. Rather than following a standard RFM tutorial, this analysis demonstrates:
 
-- ✅ **Method validation** (RFM quartiles vs k-means clustering)
-- ✅ **Sensitivity analysis** (quartile vs quintile binning stability testing)
-- ✅ **Assumption testing** (correlation analysis, distribution assessment)
-- ✅ **Transparent documentation** (exploratory dead-ends included)
-- ✅ **Reproducible research** (clear methodology, all code provided)
+- **Method validation** (RFM quartiles vs k-means clustering)
+- **Sensitivity analysis** (quartile vs quintile binning stability testing)
+- **Assumption testing** (correlation analysis, distribution assessment)
+- **Transparent documentation** (exploratory dead-ends included)
+- **Reproducible research** (clear methodology, all code provided)
 
 **Dataset:** UCI Online Retail Dataset (~540K transactions, 13 months, UK e-commerce)
 
 ---
 
-## 🎯 Key Results
+## Key Results
 
 | Metric | Finding |
 |--------|---------|
@@ -38,7 +38,7 @@ This project applies **PhD-level statistical validation methods** from analytica
 
 ---
 
-## 🔬 What Makes This PhD-Level?
+## What Makes This PhD-Level?
 
 ### 1. **Methodological Comparison**
 - Implemented both RFM quartile scoring AND k-means clustering
@@ -63,7 +63,7 @@ This project applies **PhD-level statistical validation methods** from analytica
 
 ---
 
-## 🛠️ Technical Stack
+## Technical Stack
 
 **Core Libraries:**
 - `pandas`, `numpy` - Data manipulation
@@ -81,7 +81,7 @@ This project applies **PhD-level statistical validation methods** from analytica
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 retail-customer-segmentation/
@@ -94,34 +94,34 @@ retail-customer-segmentation/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
-### 1. **Clone the Repository**
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/alexdbatista/retail-customer-segmentation.git
 cd retail-customer-segmentation
 ```
 
-### 2. **Download the Dataset**
+### 2. Download the Dataset
 The dataset is not included in this repository due to size constraints.
 
-📥 **Download:** [UCI Online Retail Dataset](https://archive.ics.uci.edu/ml/datasets/online+retail)
+**Download:** [UCI Online Retail Dataset](https://archive.ics.uci.edu/ml/datasets/online+retail)
 - File: `Online Retail.xlsx`
 - Place in project root directory
 
-### 3. **Install Dependencies**
+### 3. Install Dependencies
 ```bash
 pip install pandas numpy scipy scikit-learn matplotlib seaborn openpyxl
 ```
 
-### 4. **Run the Notebook**
+### 4. Run the Notebook
 ```bash
 jupyter notebook RFM_Customer_Segmentation.ipynb
 ```
 
 ---
 
-## 📈 Business Applications
+## Business Applications
 
 **Segment-Specific Strategies:**
 
@@ -135,7 +135,7 @@ jupyter notebook RFM_Customer_Segmentation.ipynb
 
 ---
 
-## 🔍 Project Highlights
+## Project Highlights
 
 ### Scientific Rigor Applied to Business Problem
 After 16 years in analytical chemistry research, this project demonstrates how experimental design, hypothesis testing, and method validation principles translate directly to business analytics:
@@ -158,18 +158,18 @@ After 16 years in analytical chemistry research, this project demonstrates how e
 
 ---
 
-## 📊 Sample Visualizations
+## Sample Visualizations
 
 The notebook includes:
-- 📉 Distribution analysis (histograms, box plots)
-- 🎨 3D scatter plot of RFM space
-- 🔥 Heatmaps (segment profiles, correlations)
-- 📊 Revenue contribution charts
-- 🧪 Method comparison visualizations
+- Distribution analysis (histograms, box plots)
+- 3D scatter plot of RFM space
+- Heatmaps (segment profiles, correlations)
+- Revenue contribution charts
+- Method comparison visualizations
 
 ---
 
-## 🎓 About the Author
+## About the Author
 
 **Alex Domingues Batista, PhD**  
 - 16+ years analytical chemistry research
@@ -183,13 +183,13 @@ The notebook includes:
 
 ---
 
-## 📝 License
+## License
 
 This project is open source and available under the MIT License.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Data Source:** UCI Machine Learning Repository - Online Retail Dataset
 - **Inspiration:** Translating 16 years of analytical method validation to business intelligence

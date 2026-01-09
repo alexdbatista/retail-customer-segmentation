@@ -179,7 +179,7 @@ The notebook includes:
 
 **Connect:**
 - GitHub: [@alexdbatista](https://github.com/alexdbatista)
-- LinkedIn: [Add your LinkedIn]
+- LinkedIn: [linkedin.com/in/alexdbatista](https://linkedin.com/in/alexdbatista)
 
 ---
 

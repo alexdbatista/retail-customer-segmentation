@@ -1,195 +1,92 @@
-# RFM Customer Segmentation Analysis
-## Translating Analytical Chemistry Rigor to Business Intelligence
+# RFM Customer Segmentation (RFM + K-Means) — Validation-Focused Analytics
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+Customer segmentation project using the UCI Online Retail dataset (~540k transactions) to create actionable customer groups. Emphasis on **robust methodology**: comparing approaches, validating segment separability, and testing stability of assignments.
 
-**Author:** Alex Domingues Batista, PhD  
-**Background:** Analytical Chemistry | 16+ years research experience  
-**Project Type:** Portfolio demonstration of statistical validation & methodological rigor
+**Tech:** Python, pandas, scikit-learn, scipy, matplotlib/seaborn  
+**Notebook:** `RFM_Customer_Segmentation.ipynb`  
+**Author:** Alex Domingues Batista (Analytics + statistics background)
 
 ---
 
-## Project Overview
-
-This project applies PhD-level statistical validation methods from analytical science to customer behavior analysis. Rather than following a standard RFM tutorial, this analysis demonstrates:
-
-- **Method validation** (RFM quartiles vs k-means clustering)
-- **Sensitivity analysis** (quartile vs quintile binning stability testing)
-- **Assumption testing** (correlation analysis, distribution assessment)
-- **Transparent documentation** (exploratory dead-ends included)
-- **Reproducible research** (clear methodology, all code provided)
-
-**Dataset:** UCI Online Retail Dataset (~540K transactions, 13 months, UK e-commerce)
+## Key Results (TL;DR)
+- Segmented **4,372 customers** into **5 actionable groups**
+- **Revenue concentration:** top segment contributes ~**60%** of revenue
+- **Statistical validation:** segments significantly different (**ANOVA p < 0.001**)
+- **Method agreement:** **70–80%** consistency between RFM scoring and K-Means
+- **Stability test:** **>80%** assignment stability when switching quartiles → quintiles
+- **CLV signal:** Champions ~£6,732 vs Hibernating ~£222 (≈30×)
 
 ---
 
-## Key Results
-
-| Metric | Finding |
-|--------|---------|
-| **Customer Base** | 4,372 registered customers segmented into 5 groups |
-| **Revenue Concentration** | Top 25% (Champions) contribute ~60% of total revenue |
-| **Statistical Validation** | ANOVA confirms segments are significantly distinct (p < 0.001) |
-| **Method Agreement** | 70-80% agreement between RFM and k-means approaches |
-| **Stability** | >80% segment assignment stability across binning methods |
-| **CLV Range** | Champions: £6,732 avg vs Hibernating: £222 avg (30x difference) |
+## Problem
+E-commerce businesses need a simple, interpretable segmentation to prioritize retention, win-back, and lifecycle marketing. This project builds customer segments and validates that they are:
+1) **Distinct** (statistically separable)  
+2) **Stable** (robust to parameter choices)  
+3) **Actionable** (easy to communicate to stakeholders)
 
 ---
 
-## What Makes This PhD-Level?
-
-### 1. **Methodological Comparison**
-- Implemented both RFM quartile scoring AND k-means clustering
-- Cross-validated segment assignments between methods
-- Calculated silhouette scores and agreement metrics
-- **Conclusion:** RFM captures natural data structure (not arbitrary)
-
-### 2. **Sensitivity Analysis**
-- Tested robustness by varying binning approach (quartiles → quintiles)
-- Measured segment stability (% customers with same assignment)
-- **Result:** High stability validates methodological choice
-
-### 3. **Exploratory Dead-Ends**
-- Documented transformations that didn't improve results (log scaling)
-- Tested independence assumptions (correlation analysis)
-- **Why show failures?** Authentic research process, not polished tutorial
-
-### 4. **Assumption Validation**
-- Assessed multicollinearity between RFM dimensions
-- Evaluated distribution skewness and outlier impact
-- Justified quartile approach despite moderate F-M correlation (r ~0.6)
+## Data
+**UCI Online Retail Dataset** (13 months of UK e-commerce transactions).  
+Download: https://archive.ics.uci.edu/ml/datasets/online+retail  
+File: `Online Retail.xlsx` (place in repo root)
 
 ---
 
-## Technical Stack
+## Approach
+1. **Data cleaning**
+   - Removed invalid records and prepared customer-level aggregates
+2. **RFM feature engineering**
+   - Recency, Frequency, Monetary features (customer-level)
+3. **Two segmentation methods**
+   - **RFM scoring** (quartiles; also tested quintiles)
+   - **K-Means clustering** (k=5 with scaling)
+4. **Validation**
+   - Segment separability: **ANOVA**
+   - Agreement between methods: assignment overlap (70–80%)
+   - Sensitivity/stability: quartiles vs quintiles (>80% stable)
 
-**Core Libraries:**
-- `pandas`, `numpy` - Data manipulation
-- `scipy` - Statistical testing (ANOVA, t-tests, Pearson correlation)
-- `scikit-learn` - K-means clustering, StandardScaler, silhouette analysis
-- `matplotlib`, `seaborn` - Visualization
+---
 
-**Statistical Methods:**
-- RFM quartile/quintile binning
-- One-way ANOVA (segment validation)
-- Independent t-tests (Champions vs Hibernating)
-- K-means clustering (k=5)
-- Pearson correlation analysis
-- Silhouette coefficient
+## Business Actions (example playbook)
+| Segment | Action |
+|---|---|
+| Champions | VIP retention, early access, high-touch support |
+| Loyal Customers | Cross-sell, referrals, subscription/loyalty program |
+| Potential Loyalists | Incentivize second purchase, onboarding sequences |
+| At Risk | Win-back offers, churn diagnostics |
+| Hibernating | Low-cost reactivation or suppression |
+
+---
+
+## What I Tested (and why it matters)
+- **Quartiles vs quintiles:** tested robustness of scoring choices (stability >80%)
+- **RFM vs K-Means:** compared interpretability vs data-driven clusters (70–80% agreement)
+- **Assumptions & structure:** checked distributions and correlation (e.g., F–M correlation)
+
+---
+
+## Tech Stack
+- Data: `pandas`, `numpy`, `openpyxl`
+- Stats: `scipy` (ANOVA, tests), correlation analysis
+- ML: `scikit-learn` (StandardScaler, KMeans, silhouette)
+- Viz: `matplotlib`, `seaborn`
 
 ---
 
 ## Project Structure
-
-```
 retail-customer-segmentation/
 │
-├── RFM_Customer_Segmentation.ipynb  # Main analysis notebook
-├── README.md                         # This file
-├── .gitignore                        # Excludes data files
-└── Online Retail.xlsx                # Data (not in repo - see below)
-```
+├── RFM_Customer_Segmentation.ipynb
+├── README.md
+├── .gitignore
+└── Online Retail.xlsx # downloaded separately
 
 ---
 
-## How to Run
-
-### 1. Clone the Repository
+## Reproducibility (How to run)
 ```bash
 git clone https://github.com/alexdbatista/retail-customer-segmentation.git
 cd retail-customer-segmentation
-```
-
-### 2. Download the Dataset
-The dataset is not included in this repository due to size constraints.
-
-**Download:** [UCI Online Retail Dataset](https://archive.ics.uci.edu/ml/datasets/online+retail)
-- File: `Online Retail.xlsx`
-- Place in project root directory
-
-### 3. Install Dependencies
-```bash
-pip install pandas numpy scipy scikit-learn matplotlib seaborn openpyxl
-```
-
-### 4. Run the Notebook
-```bash
+pip install -r requirements.txt
 jupyter notebook RFM_Customer_Segmentation.ipynb
-```
-
----
-
-## Business Applications
-
-**Segment-Specific Strategies:**
-
-| Segment | % Customers | % Revenue | Action |
-|---------|-------------|-----------|--------|
-| **Champions** | 25% | 60% | VIP programs, early access, retention focus |
-| **Loyal Customers** | 23% | 25% | Cross-sell campaigns, referral programs |
-| **Potential Loyalists** | 18% | 10% | Engagement sequences, purchase incentives |
-| **At Risk** | 20% | 4% | Win-back campaigns, churn analysis |
-| **Hibernating** | 14% | <1% | Low-cost re-engagement or suppression |
-
----
-
-## Project Highlights
-
-### Scientific Rigor Applied to Business Problem
-After 16 years in analytical chemistry research, this project demonstrates how experimental design, hypothesis testing, and method validation principles translate directly to business analytics:
-
-- **Data Quality → Sample Preparation:** Rigorous cleaning (removed 25% invalid records)
-- **Method Development → Segmentation Validation:** Compared RFM vs k-means
-- **Quality Control → Sensitivity Analysis:** Tested parameter robustness
-- **Lab Notebook → Documentation:** Transparent reporting of exploratory paths
-
-### Key Analytical Decisions
-
-1. **Why quartiles, not k-means?**  
-   Both methods agree (~75%), but quartiles are interpretable for stakeholders
-
-2. **Why not log-transform skewed data?**  
-   Tested and rejected—doesn't improve segmentation, reduces interpretability
-
-3. **How do you handle F-M correlation?**  
-   Acknowledged but acceptable trade-off for business alignment
-
----
-
-## Sample Visualizations
-
-The notebook includes:
-- Distribution analysis (histograms, box plots)
-- 3D scatter plot of RFM space
-- Heatmaps (segment profiles, correlations)
-- Revenue contribution charts
-- Method comparison visualizations
-
----
-
-## About the Author
-
-**Alex Domingues Batista, PhD**  
-- 16+ years analytical chemistry research
-- Expertise in statistical validation, method development, hypothesis testing
-- Transitioning to data science/analytics
-- Applying research rigor to business problems
-
-**Connect:**
-- GitHub: [@alexdbatista](https://github.com/alexdbatista)
-- LinkedIn: [linkedin.com/in/alexdbatista](https://linkedin.com/in/alexdbatista)
-
----
-
-## License
-
-This project is open source and available under the MIT License.
-
----
-
-## Acknowledgments
-
-- **Data Source:** UCI Machine Learning Repository - Online Retail Dataset
-- **Inspiration:** Translating 16 years of analytical method validation to business intelligence

@@ -75,12 +75,7 @@ File: `Online Retail.xlsx` (place in repo root)
 ---
 
 ## Project Structure
-retail-customer-segmentation/
-│
-├── RFM_Customer_Segmentation.ipynb
-├── README.md
-├── .gitignore
-└── Online Retail.xlsx # downloaded separately
+retail-customer-segmentation/ │ ├── RFM_Customer_Segmentation.ipynb # Main analysis notebook ├── README.md # Project overview ├── .gitignore # Excludes local files (e.g., data) └── Online Retail.xlsx # Downloaded separately (not committed)
 
 ---
 
